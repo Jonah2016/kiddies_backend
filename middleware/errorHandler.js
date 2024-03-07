@@ -1,4 +1,10 @@
-const { constants, SERVER_ERROR } = require("../constants.js");
+const {
+  VALIDATION_ERROR,
+  UNAUTHORIZED,
+  FORBIDDEN,
+  NOT_FOUND,
+  SERVER_ERROR,
+} = require("../constants.js");
 
 const errorHandler = (err, req, res, next) => {
   const statusCode = res.statusCode ? res.statusCode : 500;
@@ -6,7 +12,7 @@ const errorHandler = (err, req, res, next) => {
   switch (statusCode) {
     case VALIDATION_ERROR:
       res.json({
-        title: "Vlidation failed",
+        title: "Validation failed",
         message: err.message,
         stackTrace: err.stack,
       });
@@ -36,7 +42,7 @@ const errorHandler = (err, req, res, next) => {
       });
 
     default:
-      console.log("No error, All is good!");
+      console.log("No error, all is good!");
       break;
   }
 };

@@ -1,88 +1,55 @@
+const asyncHandler = require("express-async-handler");
 const Book = require("../models/book.model.js");
 
-const getBooks = async (req, res) => {
-  try {
-    const book = await Book.find({});
-    res.status(200).json(book);
-  } catch (error) {
-    res.status(500).json({ message: "Internal server error: " + error });
+const getBooks = asyncHandler(async (req, res) => {
+  const book = await Book.find({});
+  res.status(200).json(book);
+});
+
+const getBookById = asyncHandler(async (req, res) => {
+  const book = await Book.findById(req.params.id, req.body);
+
+  if (!book) {
+    res.status(404);
+    throw new Error("No book data found");
   }
-};
 
-const getBookById = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const book = await Book.findById(id, req.body);
+  res.status(200).json(book);
+});
 
-    if (!book) {
-      res.status(404).json("Book not found: " + error);
-      res.status(400).json("Bad request: " + error);
-    }
+const createBook = asyncHandler(async (req, res) => {
+  const book = await Book.create(req.body);
+  res.status(200).json(book);
+});
 
-    res.status(200).json(book);
-  } catch (error) {
-    res
-      .status(500)
-      .json({ massage: "Internal Server error: " + error.message });
-    res.status(400).json("Bad request: " + error);
+const updateBook = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const book = await Book.findById(id);
+
+  if (!book) {
+    res.status(404);
+    throw new Error("No book data found");
   }
-};
 
-const createBook = async (req, res) => {
-  try {
-    const book = await Book.create(req.body);
-    res.status(200).json(book);
-  } catch (error) {
-    res
-      .status(500)
-      .json({ massage: "Internal Server error: " + error.message });
-    res.status(503).json("Service unavailable: " + error);
-    res.status(400).json("Bad request: " + error);
+  const updatedBook = await Book.findByIdAndUpdate(id, req.body);
+  res.status(200).json(updatedBook);
+});
+
+const deleteBook = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const book = await Book.findById(id);
+
+  if (!book) {
+    res.status(404);
+    throw new Error("No book data found");
   }
-};
 
-const updateBook = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const book = await Book.findByIdAndUpdate(id, req.body);
+  await Book.deleteOne(id, req.body);
 
-    if (!book) {
-      res.status(404).json("Book not found: " + error);
-      res.status(400).json("Bad request: " + error);
-    }
-
-    const updatedBook = await Book.findById(id);
-    res.status(200).json(updatedBook);
-  } catch (error) {
-    res
-      .status(500)
-      .json({ massage: "Internal Server error: " + error.message });
-    res.status(400).json("Bad request: " + error);
-  }
-};
-
-const deleteBook = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const book = await Book.deleteOne(id, req.body);
-
-    if (!book) {
-      res
-        .status(404)
-        .json("Book could not be deleted because book wasn't found: " + error);
-      res.status(400).json("Bad request: " + error);
-    }
-
-    res
-      .status(200)
-      .json({ message: "Book with ID: " + id + " deleted successfully." });
-  } catch (error) {
-    res
-      .status(500)
-      .json({ massage: "Internal Server error: " + error.message });
-    res.status(400).json("Bad request: " + error);
-  }
-};
+  res
+    .status(200)
+    .json({ message: "Book with ID: " + id + " deleted successfully." });
+});
 
 module.exports = {
   getBooks,
