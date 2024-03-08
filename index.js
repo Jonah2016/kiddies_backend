@@ -39,6 +39,9 @@ app.use("/api/event/register", eventRoute);
 // User route
 app.use("/api/user", userRoute);
 app.use("/api/user/:id", userRoute);
+app.use("/api/user/register", userRoute);
+app.use("/api/user/login", userRoute);
+app.use("/api/user/current", userRoute);
 
 // Media route
 // app.use("/api/media", mediaRoute);

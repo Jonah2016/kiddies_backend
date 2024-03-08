@@ -53,6 +53,7 @@ const deleteEvent = asyncHandler(async (req, res) => {
     .json({ message: "Event with ID: " + id + " deleted successfully." });
 });
 
+//@access private
 const registerEvent = asyncHandler(async (req, res) => {
   const userId = req.body.user_id;
   const user = await User.findById(userId);

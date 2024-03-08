@@ -11,10 +11,10 @@ const {
 } = require("../controllers/event.controller.js");
 
 router.get("/", getEvents);
-router.get("/:id", getEventById);
 router.post("/", createEvent);
-// router.put("/:id", updateEvent);
-router.delete("/:id", deleteEvent);
 router.put("/register/", registerEvent);
+router.get("/:id", getEventById);
+router.put("/:id", updateEvent);
+router.delete("/:id", deleteEvent);
 
 module.exports = router;
