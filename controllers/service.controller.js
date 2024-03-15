@@ -46,7 +46,9 @@ const deleteService = asyncHandler(async (req, res) => {
     throw new Error("No service data found");
   }
 
-  await Service.deleteOne(id, req.body);
+  await Service.deleteOne({
+    _id: id,
+  });
 
   res
     .status(200)

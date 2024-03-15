@@ -44,7 +44,9 @@ const deleteBook = asyncHandler(async (req, res) => {
     throw new Error("No book data found");
   }
 
-  await Book.deleteOne(id, req.body);
+  await Book.deleteOne({
+    _id: id,
+  });
 
   res
     .status(200)

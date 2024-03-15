@@ -10,6 +10,11 @@ const AboutSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter description."],
     },
+    briefing: {
+      type: String,
+      maxLength: 350,
+      required: [true, "Please enter briefing."],
+    },
     mission: {
       type: String,
       required: [true, "Please enter mission."],
@@ -28,7 +33,7 @@ const AboutSchema = mongoose.Schema(
     },
     image_two: {
       type: String,
-      required: false,
+      required: [true, "Please add image one"],
     },
   },
   {

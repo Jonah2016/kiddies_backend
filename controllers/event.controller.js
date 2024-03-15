@@ -46,7 +46,9 @@ const deleteEvent = asyncHandler(async (req, res) => {
     throw new Error("No event data found");
   }
 
-  await Event.deleteOne(id, req.body);
+  await Event.deleteOne({
+    _id: id,
+  });
 
   res
     .status(200)

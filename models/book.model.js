@@ -12,6 +12,11 @@ const BookSchema = mongoose.Schema(
       required: [true, "Please enter category."],
       maxLength: 45,
     },
+    description: {
+      type: String,
+      required: false,
+      maxLength: 350,
+    },
     year_published: {
       type: String,
       required: [true, "Please enter year published."],
