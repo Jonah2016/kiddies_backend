@@ -48,6 +48,13 @@ const BookSchema = mongoose.Schema(
       max: 2,
       default: 0,
     },
+    rating: {
+      type: Number,
+      required: [true, "Please enter rating"],
+      max: 5,
+      maxLength: 2,
+      default: 0,
+    },
     author: {
       type: String,
       required: false,

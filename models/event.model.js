@@ -11,6 +11,21 @@ const EventSchema = mongoose.Schema(
       type: String,
       required: false,
     },
+    briefing: {
+      type: String,
+      required: false,
+      maxLength: 250,
+    },
+    category: {
+      type: String,
+      required: false,
+      maxLength: 50,
+    },
+    host: {
+      type: String,
+      required: false,
+      maxLength: 120,
+    },
     location: {
       type: String,
       required: false,
