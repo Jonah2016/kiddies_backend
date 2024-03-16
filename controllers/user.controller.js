@@ -3,12 +3,16 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user.model.js");
 
+// Method: GET
+// Route: /user/
 const getUsers = asyncHandler(async (req, res) => {
   const user = await User.find({});
   res.status(200).json(user);
 });
 
 //@access public
+// Method: GET
+// Route: /user/:id
 const getUserById = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const user = await User.findById(id, req.body);
@@ -21,6 +25,8 @@ const getUserById = asyncHandler(async (req, res) => {
   res.status(200).json(user);
 });
 
+// Method: PUT
+// Route: /event/:id
 const updateUser = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const user = await User.findById(id);
@@ -34,6 +40,8 @@ const updateUser = asyncHandler(async (req, res) => {
   res.status(200).json(updatedUser);
 });
 
+// Method: DELETE
+// Route: /event/:id
 const deleteUser = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const user = await User.findById(id);
@@ -50,6 +58,8 @@ const deleteUser = asyncHandler(async (req, res) => {
     .json({ message: "User with ID: " + id + " deleted successfully." });
 });
 
+// Method: POST
+// Route: /user/register
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, user_type } = req.body;
 
@@ -89,6 +99,8 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
+// Method: GET & POST
+// Route: /user/login
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -136,6 +148,8 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 //@access private
+// Method: GET
+// Route: /user/current
 const getCurrentUser = asyncHandler(async (req, res) => {
   const userId = req.user.id; // from token values
   const user = await User.findById(req.user.id);

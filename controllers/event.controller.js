@@ -2,11 +2,15 @@ const asyncHandler = require("express-async-handler");
 const Event = require("../models/event.model.js");
 const User = require("../models/user.model.js");
 
+// Method: GET
+// Route: /event/
 const getEvents = asyncHandler(async (req, res) => {
   const event = await Event.find({});
   res.status(200).json(event);
 });
 
+// Method: GET
+// Route: /event/:id
 const getEventById = asyncHandler(async (req, res) => {
   const event = await Event.findById(req.params.id, req.body);
 
@@ -18,11 +22,15 @@ const getEventById = asyncHandler(async (req, res) => {
   res.status(200).json(event);
 });
 
+// Method: POST
+// Route: /event
 const createEvent = asyncHandler(async (req, res) => {
   const event = await Event.create(req.body);
   res.status(200).json(event);
 });
 
+// Method: PUT
+// Route: /event/:id
 const updateEvent = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const event = await Event.findById(id);
@@ -36,6 +44,8 @@ const updateEvent = asyncHandler(async (req, res) => {
   res.status(200).json(updatedEvent);
 });
 
+// Method: DELETE
+// Route: /event/:id
 const deleteEvent = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
@@ -56,6 +66,8 @@ const deleteEvent = asyncHandler(async (req, res) => {
 });
 
 //@access private
+// Method: GET & PUT
+// Route: /event/:id
 const registerEvent = asyncHandler(async (req, res) => {
   const userId = req.body.user_id;
   const user = await User.findById(userId);
