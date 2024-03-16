@@ -1,6 +1,9 @@
 .DS_STORE
 node_modules
 node_modules/
+/node_modules
+/.pnp
+.pnp.js
 .env
 scripts/flow/*/.flowconfig
 .flowconfig
@@ -38,3 +41,15 @@ packages/react-devtools-extensions/.tempUserDataDir
 packages/react-devtools-inline/dist
 packages/react-devtools-shell/dist
 packages/react-devtools-timeline/dist
+
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
