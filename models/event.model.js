@@ -31,6 +31,11 @@ const EventSchema = mongoose.Schema(
       required: false,
       maxLength: 120,
     },
+    date: {
+      type: String,
+      required: false,
+      maxLength: 30,
+    },
     url: {
       type: String,
       required: false,

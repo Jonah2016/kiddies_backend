@@ -15,7 +15,7 @@ const BookSchema = mongoose.Schema(
     description: {
       type: String,
       required: false,
-      maxLength: 350,
+      maxLength: 450,
     },
     year_published: {
       type: String,
