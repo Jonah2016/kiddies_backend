@@ -12,7 +12,7 @@ const bookRoute = require("./routes/book.route.js");
 const serviceRoute = require("./routes/service.route.js");
 const eventRoute = require("./routes/event.route.js");
 const userRoute = require("./routes/user.route.js");
-// const mediaRoute = require("./routes/media.route.js");
+const mediaRoute = require("./routes/media.route.js");
 
 // Middleware
 app.use(express.json());
@@ -36,7 +36,7 @@ app.use("/api/event", eventRoute);
 app.use("/api/user", userRoute);
 
 // Media route
-// app.use("/api/media", mediaRoute);
+app.use("/api/media", mediaRoute);
 
 app.use(errorHandler);
 

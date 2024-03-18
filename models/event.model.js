@@ -55,7 +55,7 @@ const EventSchema = mongoose.Schema(
     status: {
       type: Number,
       max: 2,
-      required: [true, "The status ia required"],
+      required: [true, "The status is required"],
       default: 0,
     },
     registered_users: {
