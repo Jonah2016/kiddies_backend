@@ -8,7 +8,7 @@ This is a node backend server for Kiddies Adventure Zone project. This will serv
 
 This can be adopted for use on library projects as well.
 
-### Installation
+### Installation Procedure
 
 To install Kiddies Backend locally, follow these steps:
 
