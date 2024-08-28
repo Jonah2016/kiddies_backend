@@ -13,13 +13,10 @@ This can be adopted for use on library projects as well.
 To install Kiddies Backend locally, follow these steps:
 
 ```
-    Clone the repository: git clone https://github.com/Jonah2016/kiddies_backend.git
+    Clone the repository: git clone https://github.com/Step1hen/kiddies_backend1.git
     Navigate to the project directory: cd kiddies_backend
     Install dependencies: npm install
-    Create an `.env` file and provide the following from the <b><a href="https://github.com/Jonah2016/kiddies_backend">kiddies_backend</a></b> project
-    1. CONNECTION_STRING={mongo DB connection_string}
-    2. PORT=3001
-    3. ACCESS_TOKEN_SECRETE=
+    
 ```
 
 ### Usage
@@ -33,7 +30,7 @@ npm start
 Visit `http://localhost:{PORT}/`` in your web browser to access Kiddies Adventure Zone.
 Contributing
 
-We welcome contributions from the community to make Kiddies Adventure Zone even better! If you would like to contribute, please follow these steps:
+I welcome contributions from the community to make Kiddies Adventure Zone even better! If you would like to contribute, please follow these steps:
 
     Fork the repository.
     Create a new branch for your feature: git checkout -b feature-name
@@ -43,4 +40,4 @@ We welcome contributions from the community to make Kiddies Adventure Zone even 
 
 ### Related Projects
 
-API: This backend node application is default for a frontend called <b><a href="https://github.com/Jonah2016/kiddies_adventure_zone">kiddies_adventure_zone</a></b>
+API: This backend node application is default for a frontend called <b><a href="https://github.com/Step1hen/kiddies_frontend">kiddies_adventure_zone</a></b>
